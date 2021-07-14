@@ -6,7 +6,7 @@
     <artifactId>camunda-dependencies</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>bom.camunda.dependencies</name>
+    <name>platform-bom.camunda.dependencies</name>
     <parent>
         <groupId>com.bosuyun.bom</groupId>
         <artifactId>platform-bom</artifactId>
