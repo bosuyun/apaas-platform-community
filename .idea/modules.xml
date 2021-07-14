@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/apaas-framework-community.iml" filepath="$PROJECT_DIR$/.idea/apaas-framework-community.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bom/bom.iml" filepath="$PROJECT_DIR$/bom/bom.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bom/camel-dependencies/camel-dependencies.iml" filepath="$PROJECT_DIR$/bom/camel-dependencies/camel-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bom/camunda-dependencies/camunda-dependencies.iml" filepath="$PROJECT_DIR$/bom/camunda-dependencies/camunda-dependencies.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platform/platform.iml" filepath="$PROJECT_DIR$/platform/platform.iml" />
+      <module fileurl="file://$PROJECT_DIR$/platform-api/platform-api.iml" filepath="$PROJECT_DIR$/platform-api/platform-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bom/quarkus-dependencies/quarkus-dependencies.iml" filepath="$PROJECT_DIR$/bom/quarkus-dependencies/quarkus-dependencies.iml" />
+    </modules>
+  </component>
+</project>
