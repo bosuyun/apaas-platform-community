@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.bosuyun</groupId>
-        <artifactId>paas</artifactId>
+        <artifactId>apaas-platform-community</artifactId>
         <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>platform</artifactId>
+    <artifactId>platform-common</artifactId>
     <version>1.0.1-SNAPSHOT</version>
+    <packaging>jar</packaging>
     <properties>
         <hypersistence-optimizer.version>2.2.0</hypersistence-optimizer.version>
         <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>

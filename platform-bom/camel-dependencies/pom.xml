@@ -7,7 +7,7 @@
     <version>1.0.1-SNAPSHOT</version>
     <parent>
         <groupId>com.bosuyun.bom</groupId>
-        <artifactId>bom</artifactId>
+        <artifactId>platform-bom</artifactId>
         <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>

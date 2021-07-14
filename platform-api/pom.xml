@@ -10,12 +10,12 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <artifactId>platform-api</artifactId>
-    <name>platform.api</name>
+    <name>platform-api</name>
     <version>1.0.1-SNAPSHOT</version>
     <dependencies>
         <dependency>
             <groupId>com.bosuyun</groupId>
-            <artifactId>platform</artifactId>
+            <artifactId>platform-common</artifactId>
             <version>1.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
