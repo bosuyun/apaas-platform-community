@@ -4,6 +4,12 @@
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-filestore/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-common/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-data/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-process/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-plugin/pom.xml" />
+        <option value="$PROJECT_DIR$/platform-bom/pom.xml" />
       </list>
     </option>
   </component>

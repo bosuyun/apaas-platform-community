@@ -3,20 +3,19 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+    <groupId>com.bosuyun.bom</groupId>
+    <artifactId>platform-bom</artifactId>
+    <version>1.0.1-SNAPSHOT</version>
     <parent>
         <groupId>com.bosuyun</groupId>
         <artifactId>apaas-platform-community</artifactId>
         <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>platform-api</artifactId>
-    <name>platform.api</name>
-    <version>1.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.bosuyun</groupId>
-            <artifactId>platform</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <packaging>pom</packaging>
+    <modules>
+        <module>camel-dependencies</module>
+        <module>quarkus-dependencies</module>
+        <module>camunda-dependencies</module>
+    </modules>
 </project>

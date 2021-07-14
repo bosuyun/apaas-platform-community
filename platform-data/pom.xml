@@ -3,20 +3,16 @@
          xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
+    <artifactId>platform-data</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
     <parent>
         <groupId>com.bosuyun</groupId>
         <artifactId>apaas-platform-community</artifactId>
         <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
-    <artifactId>platform-api</artifactId>
-    <name>platform.api</name>
-    <version>1.0.1-SNAPSHOT</version>
-    <dependencies>
-        <dependency>
-            <groupId>com.bosuyun</groupId>
-            <artifactId>platform</artifactId>
-            <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-    </dependencies>
+    <properties>
+     
+    </properties>
+
 </project>
