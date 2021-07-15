@@ -22,9 +22,9 @@ import static com.bosuyun.platform.common.utils.JsonUtils.toJsonString;
 })
 @Data
 @Accessors(chain = true)
-public class Space extends BaseEntity {
+public class Tenant extends BaseEntity {
 
-    @ApiModelProperty(value = "工作区名称")
+    @ApiModelProperty(value = "租户名称")
     @Column(nullable = false)
     private String name;
 

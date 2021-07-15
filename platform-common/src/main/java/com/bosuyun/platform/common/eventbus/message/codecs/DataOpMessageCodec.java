@@ -1,6 +1,6 @@
-package com.bosuyun.platform.eventbus.message.codecs;
+package com.bosuyun.platform.common.eventbus.message.codecs;
 
-import com.bosuyun.platform.eventbus.message.DataOpMessage;
+import com.bosuyun.platform.common.eventbus.message.DataOpMessage;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.eventbus.MessageCodec;
 import io.vertx.core.json.Json;

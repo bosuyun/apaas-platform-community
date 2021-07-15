@@ -1,4 +1,4 @@
-package com.bosuyun.platform.endpoint;
+package com.bosuyun.platform.common.endpoint;
 
 /**
  * ROBOT AGENT

@@ -28,5 +28,5 @@ public class Corp extends BaseEntity {
     private String name;
 
     @OneToMany(fetch=FetchType.EAGER)
-    private Set<Space> spaces;
+    private Set<Tenant> spaces;
 }

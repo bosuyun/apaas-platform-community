@@ -1,4 +1,4 @@
-package com.bosuyun.platform.eventbus.message;
+package com.bosuyun.platform.common.eventbus.message;
 
 /**
  * 流程操作

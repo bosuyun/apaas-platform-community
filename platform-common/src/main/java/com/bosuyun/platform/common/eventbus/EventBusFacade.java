@@ -1,9 +1,9 @@
-package com.bosuyun.platform.eventbus;
+package com.bosuyun.platform.common.eventbus;
 
 import com.bosuyun.platform.common.exception.BizzException;
-import com.bosuyun.platform.eventbus.message.codecs.DataOpMessageCodec;
-import com.bosuyun.platform.eventbus.event.IEvent;
-import com.bosuyun.platform.eventbus.message.EventMessage;
+import com.bosuyun.platform.common.eventbus.message.codecs.DataOpMessageCodec;
+import com.bosuyun.platform.common.eventbus.event.IEvent;
+import com.bosuyun.platform.common.eventbus.message.EventMessage;
 import io.vertx.core.eventbus.DeliveryOptions;
 import io.vertx.mutiny.core.eventbus.EventBus;
 import lombok.NoArgsConstructor;

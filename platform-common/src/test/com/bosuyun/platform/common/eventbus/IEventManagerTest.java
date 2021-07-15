@@ -1,4 +1,4 @@
-package com.bosuyun.platform.eventbus;
+package com.bosuyun.platform.common.eventbus;
 
 import io.quarkus.test.junit.QuarkusTest;
 

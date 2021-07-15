@@ -14,8 +14,8 @@ class CorpTest {
     void create() {
         Corp corp = new Corp().setName("hello" + LocalDateTime.now());
         Corp.persist(corp);
-        Space space = new Space().setName("space" + LocalDateTime.now()).setCorp(corp);
-        Space.persist(space);
+        Tenant space = new Tenant().setName("space" + LocalDateTime.now()).setCorp(corp);
+        Tenant.persist(space);
     }
 
     @Test
@@ -26,7 +26,7 @@ class CorpTest {
 
     @Test
     void findSpace() {
-        Space space = Space.findById(1L);
+        Tenant space = Tenant.findById(1L);
         System.out.println(space);
     }
 }

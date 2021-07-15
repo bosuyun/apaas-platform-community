@@ -25,7 +25,7 @@ public class Application extends BaseEntity {
 
     @ApiModelProperty(value = "所属工作区")
     @OneToOne(fetch = FetchType.LAZY)
-    private Space space;
+    private Tenant space;
 
     @ApiModelProperty(value = "父应用")
     @ManyToOne(fetch = FetchType.LAZY)

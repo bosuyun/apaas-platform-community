@@ -1,4 +1,4 @@
-package com.bosuyun.platform.eventbus;
+package com.bosuyun.platform.common.eventbus;
 
 import com.bosuyun.platform.common.context.ReqContext;
 import com.bosuyun.platform.common.misc.DataNode;

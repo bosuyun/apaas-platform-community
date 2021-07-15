@@ -1,7 +1,7 @@
-package com.bosuyun.platform.eventbus.event;
+package com.bosuyun.platform.common.eventbus.event;
 
-import com.bosuyun.platform.eventbus.message.codecs.DataOpMessageCodec;
-import com.bosuyun.platform.eventbus.message.DataOpMessage;
+import com.bosuyun.platform.common.eventbus.message.codecs.DataOpMessageCodec;
+import com.bosuyun.platform.common.eventbus.message.DataOpMessage;
 import io.quarkus.vertx.ConsumeEvent;
 import lombok.extern.slf4j.Slf4j;
 

@@ -1,4 +1,4 @@
-package com.bosuyun.platform.eventbus.message;
+package com.bosuyun.platform.common.eventbus.message;
 
 import com.bosuyun.platform.common.exception.BizzException;
 import com.bosuyun.platform.common.misc.DataNode;

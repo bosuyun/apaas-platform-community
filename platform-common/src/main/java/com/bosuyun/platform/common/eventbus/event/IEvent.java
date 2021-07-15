@@ -1,4 +1,4 @@
-package com.bosuyun.platform.eventbus.event;
+package com.bosuyun.platform.common.eventbus.event;
 
 /**
  * 观察者接口
