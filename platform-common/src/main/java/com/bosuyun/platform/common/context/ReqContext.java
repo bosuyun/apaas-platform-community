@@ -26,6 +26,7 @@ public class ReqContext {
 
     /**
      * 工作区/租户ID (与pg tableSchema对应)
+     * tenantId is used as a schema, a company can have many tenant
      */
     private Long tenantId;
 

@@ -1,4 +1,4 @@
-package com.bosuyun.platform.data.driver;
+package com.bosuyun.platform.common.misc;
 
 import java.util.Arrays;
 import java.util.List;

@@ -1,7 +1,5 @@
 package com.bosuyun.platform.common.misc;
 
-import com.bosuyun.platform.data.driver.SystemFieldConstants;
-import com.bosuyun.platform.data.msic.DataSchemaTree;
 import com.bosuyun.platform.common.utils.JsonSchemaUtils;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.bosuyun.platform.common.utils.StringCaseUtils;
