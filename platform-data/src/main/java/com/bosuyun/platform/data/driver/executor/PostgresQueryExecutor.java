@@ -4,7 +4,7 @@ import com.bosuyun.platform.common.context.ReqContext;
 import com.bosuyun.platform.common.misc.DataNode;
 import com.bosuyun.platform.common.misc.DataNodeList;
 import com.bosuyun.platform.common.misc.DataNodePage;
-import com.bosuyun.platform.data.driver.SystemFieldConstants;
+import com.bosuyun.platform.common.misc.SystemFieldConstants;
 import com.bosuyun.platform.data.driver.query.sql.*;
 import com.bosuyun.platform.data.msic.DataDriverException;
 import lombok.extern.slf4j.Slf4j;

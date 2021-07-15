@@ -1,6 +1,6 @@
 package com.bosuyun.platform.common.entity;
 
-import com.bosuyun.platform.data.msic.DataSchemaTree;
+import com.bosuyun.platform.common.schema.ObjectType;
 import com.bosuyun.platform.common.BaseEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
@@ -28,7 +28,7 @@ public class DataSchema extends BaseEntity {
 
     @Type(type = "jsonb")
     @Column(columnDefinition = "jsonb")
-    private DataSchemaTree schema;
+    private ObjectType schema;
 
     @ApiModelProperty(value = "schema版本号，也会保存至appdata")
     private Boolean current;

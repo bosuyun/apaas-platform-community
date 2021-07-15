@@ -1,6 +1,5 @@
 package com.bosuyun.platform.common.misc;
 
-import com.bosuyun.platform.data.driver.query.Paging;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;

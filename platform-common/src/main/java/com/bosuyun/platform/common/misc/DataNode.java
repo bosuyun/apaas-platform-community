@@ -1,5 +1,6 @@
 package com.bosuyun.platform.common.misc;
 
+import com.bosuyun.platform.common.schema.ObjectType;
 import com.bosuyun.platform.common.utils.JsonSchemaUtils;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.bosuyun.platform.common.utils.StringCaseUtils;
@@ -139,7 +140,7 @@ public class DataNode extends LinkedHashMap<String, Object> {
      * @param schema
      * @return
      */
-    public DataNode filterBySchema(DataSchemaTree schema) {
+    public DataNode filterBySchema(ObjectType schema) {
         Set<String> schemaKeys = schema.getProperties().keySet();
         for (String dataKey : this.keySet()) {
             if (!schemaKeys.contains(dataKey)) {

@@ -1,7 +1,7 @@
 package com.bosuyun.platform.common.entity;
 
 import com.bosuyun.platform.common.definition.DSDriverTypeEnum;
-import com.bosuyun.platform.data.msic.DatasourceException;
+import com.bosuyun.platform.common.exception.BizzException;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 import com.bosuyun.platform.common.BaseEntity;
@@ -39,7 +39,7 @@ public class Datasource extends BaseEntity {
             log.debug("datasource id {} notfound in memory cache, will find in in database.", id);
             dataSource = findById(id);
             if (Objects.isNull(dataSource)) {
-                throw new DatasourceException(String.format("datasource id %s is not available.", id));
+                throw new BizzException(String.format("datasource id %s is not available.", id));
             }
             dsCache.put(id, dataSource);
         }

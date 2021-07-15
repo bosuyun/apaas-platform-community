@@ -1,12 +1,13 @@
 package com.bosuyun.platform.data.msic;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.bosuyun.platform.common.schema.JsonSchemaKey;
 import com.bosuyun.platform.common.schema.ObjectType;
 import com.bosuyun.platform.common.schema.SchemaNode;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.bosuyun.platform.data.DataSchemaFacade;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.NoArgsConstructor;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
@@ -21,7 +22,12 @@ import java.util.regex.Pattern;
  * Created by liuyuancheng on 2021/1/7  <br/>
  */
 @Slf4j
+@NoArgsConstructor
 public class DataSchemaTree extends ObjectType {
+
+    public DataSchemaTree(ObjectType objectType) {
+        this.putAll(objectType);
+    }
 
     /**
      * 添加字段
@@ -102,8 +108,9 @@ public class DataSchemaTree extends ObjectType {
         return this.initAsRoot(UUID.randomUUID().toString());
     }
 
-    public static DataSchemaTree getDataSchema(@NonNull Long schemaId){
-        return CDI.current().select(DataSchemaFacade.class).get().findSchemaNode(schemaId);
+    public static DataSchemaTree getDataSchema(@NonNull Long schemaId) {
+        var returning = CDI.current().select(DataSchemaFacade.class).get().findSchemaNode(schemaId);
+        return new DataSchemaTree(returning);
     }
 
     @Override

@@ -3,7 +3,7 @@ package com.bosuyun.platform.data;
 import com.bosuyun.platform.common.misc.DataNode;
 import com.bosuyun.platform.common.misc.DataNodeList;
 import com.bosuyun.platform.common.misc.DataNodePage;
-import com.bosuyun.platform.data.driver.query.Paging;
+import com.bosuyun.platform.common.misc.Paging;
 import com.bosuyun.platform.data.driver.query.sql.WhereClause;
 import com.bosuyun.platform.data.msic.AbstractQueryFacade;
 import com.bosuyun.platform.eventbus.EventBusFacade;

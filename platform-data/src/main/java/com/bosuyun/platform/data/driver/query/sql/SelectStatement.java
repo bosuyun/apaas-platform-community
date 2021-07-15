@@ -1,7 +1,7 @@
 package com.bosuyun.platform.data.driver.query.sql;
 
 import com.bosuyun.platform.common.context.ReqContext;
-import com.bosuyun.platform.data.driver.query.Paging;
+import com.bosuyun.platform.common.misc.Paging;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

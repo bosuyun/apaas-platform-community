@@ -1,6 +1,6 @@
 package com.bosuyun.platform.eventbus;
 
-import com.bosuyun.platform.data.msic.DataDriverException;
+import com.bosuyun.platform.common.exception.BizzException;
 import com.bosuyun.platform.eventbus.message.codecs.DataOpMessageCodec;
 import com.bosuyun.platform.eventbus.event.IEvent;
 import com.bosuyun.platform.eventbus.message.EventMessage;
@@ -25,7 +25,7 @@ public class EventBusFacade {
 
     public void launchDataOpEvent(EventMessage message) {
         if (!message.hasReqContext()) {
-            throw new DataDriverException("必须传入ReqContext");
+            throw new BizzException("必须传入ReqContext");
         }
         eventBus.publish(IEvent.DATA_OP_EVENT, message, new DeliveryOptions()
                 .setCodecName(DataOpMessageCodec.class.getSimpleName()));
@@ -33,7 +33,7 @@ public class EventBusFacade {
 
     public void launchProcessEvent(EventMessage message) {
         if (!message.hasReqContext()) {
-            throw new DataDriverException("必须传入ReqContext");
+            throw new BizzException("必须传入ReqContext");
         }
         eventBus.publish(IEvent.PROCESS_OP_EVENT, message);
     }

@@ -1,8 +1,8 @@
 package com.bosuyun.platform.eventbus.message;
 
+import com.bosuyun.platform.common.exception.BizzException;
 import com.bosuyun.platform.common.misc.DataNode;
 import com.bosuyun.platform.common.misc.DataNodeList;
-import com.bosuyun.platform.data.msic.DataDriverException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -102,10 +102,10 @@ public class DataOpMessage extends EventMessage {
 
     public DataOpMessage setFormerData(DataNode data) {
         if (!this.action.equals(DATA_OP_UPDATE)) {
-            throw new DataDriverException("updateFields only support for update action.");
+            throw new BizzException("updateFields only support for update action.");
         }
         if (this.inputData.size() > 1) {
-            throw new DataDriverException("Only support update 1 item, or dose not set oldData.");
+            throw new BizzException("Only support update 1 item, or dose not set oldData.");
         }
         this.formerData = new DataNodeList(data);
         return this;
@@ -119,7 +119,7 @@ public class DataOpMessage extends EventMessage {
      */
     public DataOpMessage setUpdateFields(List<String> updateFields) {
         if (!this.action.equals(DATA_OP_UPDATE)) {
-            throw new DataDriverException("updateFields only support for update action.");
+            throw new BizzException("updateFields only support for update action.");
         }
         this.updateFields = updateFields;
         return this;

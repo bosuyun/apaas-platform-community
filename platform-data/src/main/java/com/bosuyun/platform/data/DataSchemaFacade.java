@@ -1,9 +1,7 @@
 package com.bosuyun.platform.data;
 
 
-import com.bosuyun.platform.applica.DataAppService;
 import com.bosuyun.platform.data.msic.DataDriverException;
-import com.bosuyun.platform.data.msic.DataSchemaTree;
 import com.bosuyun.platform.common.entity.DataSchema;
 import com.bosuyun.platform.common.schema.ObjectType;
 import io.quarkus.cache.CacheInvalidate;
@@ -27,8 +25,6 @@ public class DataSchemaFacade {
     @Inject
     DataOpFacade dataFindFacade;
 
-    @Inject
-    DataAppService dataAppFacade;
 
     private static final String CACHE_NAME = "DATA_SCHEMA";
 
@@ -43,7 +39,7 @@ public class DataSchemaFacade {
         return DataSchema.findById(id);
     }
 
-    public DataSchemaTree findSchemaNode(Long id) {
+    public ObjectType findSchemaNode(Long id) {
         DataSchema dataSchema = this.findById(id);
         if (Objects.isNull(dataSchema)) {
             throw new DataDriverException("Schema id " + id + " is not exists.");
