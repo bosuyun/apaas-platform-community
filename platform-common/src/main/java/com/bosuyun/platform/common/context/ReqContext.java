@@ -25,9 +25,9 @@ public class ReqContext {
     private String traceId;
 
     /**
-     * 工作区ID (与pg tableSchema对应)
+     * 工作区/租户ID (与pg tableSchema对应)
      */
-    private Long spaceId;
+    private Long tenantId;
 
     /**
      * 数据应用ID
@@ -67,7 +67,7 @@ public class ReqContext {
     }
 
     public String getTableSchema() {
-        return "spc" + this.getSpaceId();
+        return "spc" + this.getTenantId();
     }
 
     /**

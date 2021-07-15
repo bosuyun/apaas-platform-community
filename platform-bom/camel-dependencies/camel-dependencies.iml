@@ -126,4 +126,7 @@
     <orderEntry type="library" name="Maven: org.apache.camel.quarkus:camel-quarkus-main:1.1.0" level="project" />
     <orderEntry type="library" name="Maven: org.apache.camel:camel-main:3.5.0" level="project" />
   </component>
+  <component name="Quarkus Tools">
+    <option name="hash" value="-382498296" />
+  </component>
 </module>
