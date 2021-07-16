@@ -4,7 +4,7 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.bosuyun</groupId>
-    <artifactId>apaas-platform-community</artifactId>
+    <artifactId>bosuyun-apaas-platform</artifactId>
     <version>1.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <properties>

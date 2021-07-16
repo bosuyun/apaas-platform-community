@@ -1,0 +1,9 @@
+# Configuration file
+# key = value
+
+quarkus:
+  http:
+    port: 9000
+
+  kafka-streams:
+    topics: lego
