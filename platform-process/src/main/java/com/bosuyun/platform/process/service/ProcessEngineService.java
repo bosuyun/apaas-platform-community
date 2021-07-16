@@ -14,7 +14,7 @@ import java.io.Serializable;
 
 /**
  * Camunda Service API
- *
+ * <p>
  * https://docs.camunda.org/manual/7.15/user-guide/process-engine/process-engine-api/#services-api
  * https://github.com/camunda/camunda-engine-unittest
  */
@@ -65,13 +65,29 @@ public class ProcessEngineService implements Serializable {
     }
 
     @Produces
+    ManagementService getManagementService() {
+        engine.getManagementService().toggleTelemetry(true);
+        return engine.getManagementService();
+    }
+
+    @Produces
     RuntimeService getRuntimeService() {
         return engine.getRuntimeService();
     }
 
     @Produces
-    DecisionService getDecisionService(){
+    DecisionService getDecisionService() {
         return engine.getDecisionService();
+    }
+
+    @Produces
+    FormService getFormService(){
+        return engine.getFormService();
+    }
+
+    @Produces
+    HistoryService getHistoryService(){
+        return engine.getHistoryService();
     }
 
 }

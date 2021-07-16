@@ -46,17 +46,7 @@ public class SimpleTestCase {
     public void shouldExecuteProcessCondition() {
         // Given we create a new process instance
         ProcessInstance processInstance = BpmnAwareTests.runtimeService().startProcessInstanceByKey("stdDiagram");
-        // Then it should be active
-        BpmnAwareTests.assertThat(processInstance).isActive();
-        // And it should be the only instance
-        Assertions.assertEquals(BpmnAwareTests.processInstanceQuery().count(), 1);
-        // And there should exist just a single task within that process instance
-        Assertions.assertNotNull(BpmnAwareTests.assertThat(BpmnAwareTests.task(processInstance)));
-        // When we complete that task
-        BpmnAwareTests.complete(BpmnAwareTests.task(processInstance));
-        // Then the process instance should be ended
         BpmnAwareTests.assertThat(processInstance).isEnded();
-        System.out.println(processInstance.getProcessInstanceId());
     }
 
 }

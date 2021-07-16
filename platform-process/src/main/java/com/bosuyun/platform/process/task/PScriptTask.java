@@ -12,7 +12,7 @@ public class PScriptTask extends PJavaTask implements JavaDelegate {
 
     @Override
     public void execute(DelegateExecution execution) {
-        execution.getBpmnModelElementInstance();
+        System.out.println("PScriptTask");
     }
 
 }

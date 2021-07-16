@@ -7,7 +7,7 @@
     <version>1.0.0-SNAPSHOT</version>
     <parent>
         <groupId>com.bosuyun</groupId>
-        <artifactId>apaas-platform-community</artifactId>
+        <artifactId>apaas-platform</artifactId>
         <version>1.0.1-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
@@ -68,6 +68,12 @@
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
             <type>pom</type>
+        </dependency>
+<!--        用于生成邮件内容等-->
+        <dependency>
+            <groupId>org.camunda.template-engines</groupId>
+            <artifactId>camunda-template-engines-freemarker</artifactId>
+            <version>1.1.0</version>
         </dependency>
         <dependency>
             <groupId>io.quarkus</groupId>
