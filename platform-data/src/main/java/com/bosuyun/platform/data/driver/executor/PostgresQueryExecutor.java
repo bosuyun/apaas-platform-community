@@ -6,7 +6,7 @@ import com.bosuyun.platform.common.misc.DataNodeList;
 import com.bosuyun.platform.common.misc.DataNodePage;
 import com.bosuyun.platform.common.misc.SystemFieldConstants;
 import com.bosuyun.platform.data.driver.query.sql.*;
-import com.bosuyun.platform.data.msic.DataDriverException;
+import com.bosuyun.platform.data.exception.DataDriverException;
 import lombok.extern.slf4j.Slf4j;
 
 import java.time.LocalDateTime;
@@ -43,7 +43,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setWhereClause(filter)
                 .setFields(getFields())
                 .setLimit(1);
-        var t = getSqlExecuteManager().execute(statement.toSql());
+        var t = getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
         if (t.isEmpty()) {
             log.debug("数据库中未找到条件匹配的数据: {}", filter.toSqlSegment());
             return null;
@@ -63,7 +63,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setOffset(offset)
                 .setLimit(getPaging().getSize())
                 .setOrderBy(getPaging().getOrderByMap());
-        var t = getSqlExecuteManager().execute(statement.toSql());
+        var t = getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
         if (t.isEmpty()) {
             log.debug("数据库中未找到条件匹配的数据: {}", filter.toSqlSegment());
             return null;
@@ -87,7 +87,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setFields(getFields())
                 .setOffset(offset)
                 .setLimit(getPaging().getSize());
-        return getSqlExecuteManager().execute(statement.toSql());
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
     }
 
     @Override
@@ -99,7 +99,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setFields(Arrays.asList("id"))
                 .setOffset(offset)
                 .setLimit(getPaging().getSize());
-        return getSqlExecuteManager().execute(statement.toSql()).extractFieldList("id", Long.class);
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql()).extractFieldList("id", Long.class);
     }
 
     @Override
@@ -108,21 +108,21 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setFields(Arrays.asList("COUNT(1) AS count"))
                 .setLimit(1)
                 .setWhereClause(filter);
-        var t = getSqlExecuteManager().execute(statement.toSql());
+        var t = getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
         return ((Long) t.get(0).get("count")).intValue();
     }
 
     @Override
     public Long insertOne(DataNode dataNode) {
         SqlStatement statement = new InsertStatement(getContext()).putDataNode(dataNode);
-        DataNodeList dataNodes = getSqlExecuteManager().execute(statement.toSql());
+        DataNodeList dataNodes = getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
         return dataNodes.get(0).asLong("id");
     }
 
     @Override
     public List<Long> insertMany(DataNodeList dataNodes) {
         SqlStatement statement = new InsertStatement(getContext()).putDataNode(dataNodes);
-        DataNodeList idList = getSqlExecuteManager().execute(statement.toSql());
+        DataNodeList idList = getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
         return idList.stream().map(e -> Long.parseLong(e.asString("id"))).collect(Collectors.toList());
     }
 
@@ -150,7 +150,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
     @Override
     public Long updateOne(WhereClause filter, DataNode dataNode) {
         SqlStatement statement = new UpdateStatement(getContext()).setDataNode(dataNode).setLimit(1).setWhereClause(filter);
-        var returning = getSqlExecuteManager().execute(statement.toSql());
+        var returning = getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
         if (returning.isEmpty()) {
             return null;
         }
@@ -168,13 +168,13 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setWhereClause(eq("tablename", this.getContext().getTableName()))
                 .setTableSchema(null)
                 .setTableName("pg_indexes");
-        return getSqlExecuteManager().execute(statement.toSql());
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
     }
 
     @Override
     public DataNodeList createIndex(String indexName, String indexType, List<String> fields) {
         SqlStatement statement = new CreateStatement().addFieldIndex(indexName, indexType, fields);
-        return getSqlExecuteManager().execute(statement.toSql());
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
     }
 
     @Override
@@ -184,14 +184,14 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setLimit(1)
                 .setTableName("schemata")
                 .setTableSchema("information_schema");
-        var exists = getSqlExecuteManager().exists(statement.toSql());
+        var exists = getSqlExecuteManager().exists(getContext().getDatasourceId(), statement.toSql());
         if (exists) {
-            log.warn("schema named {},is already exists in dsId {}.", schemaName, getContext().getDsId());
+            log.warn("schema named {},is already exists in datasourceId {}.", schemaName, getContext().getDatasourceId());
             return null;
         }
         SqlStatement statement1 = new CreateStatement()
                 .setTableSchema(schemaName);
-        return getSqlExecuteManager().execute(statement1.toSql());
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), statement1.toSql());
     }
 
     @Override
@@ -201,26 +201,26 @@ public class PostgresQueryExecutor extends QueryExecutor {
                 .setLimit(1)
                 .setTableName("schemata")
                 .setTableSchema("information_schema");
-        var exists = getSqlExecuteManager().exists(statement.toSql());
+        var exists = getSqlExecuteManager().exists(getContext().getDatasourceId(), statement.toSql());
         if (!exists) {
-            log.warn("schema named {},not exists in dsId {}.", schemaName, getContext().getDsId());
+            log.warn("schema named {},not exists in datasourceId {}.", schemaName, getContext().getDatasourceId());
             return null;
         }
         SqlStatement statement1 = new DropStatement()
                 .setTableSchema(schemaName);
-        return getSqlExecuteManager().execute(statement1.toSql());
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), statement1.toSql());
     }
 
     @Override
     public void dropIndex(String indexName) {
         SqlStatement statement = new DropStatement().dropIndex(indexName);
-        getSqlExecuteManager().execute(statement.toSql());
+        getSqlExecuteManager().execute(getContext().getDatasourceId(), statement.toSql());
     }
 
     @Override
     public void explain(SqlStatement sqlStatement) {
         var sql = sqlStatement.getSql().insert(0, "EXPLAIN ANALYZE ");
-        getSqlExecuteManager().execute(sql.toString());
+        getSqlExecuteManager().execute(getContext().getDatasourceId(), sql.toString());
     }
 
     @Override
@@ -236,7 +236,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
                     .append(");");
         }
         DataNode ret = new DataNode();
-        for (DataNode dataNode : getSqlExecuteManager().execute(sqlSb.toString())) {
+        for (DataNode dataNode : getSqlExecuteManager().execute(getContext().getDatasourceId(), sqlSb.toString())) {
             ret.put(dataNode.asString("columnName"), dataNode);
             // float8 等价于 double precision
             if ("double precision".equals(dataNode.asString("dataType"))) {
@@ -250,7 +250,7 @@ public class PostgresQueryExecutor extends QueryExecutor {
     public DataNodeList selectTables(String schemaName) {
         String sql = String.format("select table_schema,table_name from information_schema.tables " +
                 "WHERE table_schema='%s' AND table_schema NOT IN ('pg_catalog','information_schema');", schemaName.trim());
-        return getSqlExecuteManager().execute(sql);
+        return getSqlExecuteManager().execute(getContext().getDatasourceId(), sql);
     }
 
     @Override

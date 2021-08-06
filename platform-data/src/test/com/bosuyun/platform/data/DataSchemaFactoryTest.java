@@ -1,7 +1,7 @@
 package com.bosuyun.platform.data;
 
 import com.bosuyun.platform.data.schema.DataSchemaFactory;
-import io.quarkus.test.junit.QuarkusTest;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -11,7 +11,7 @@ import javax.transaction.Transactional;
 /**
  * Created by liuyuancheng on 2020/12/17  <br/>
  */
-@QuarkusTest
+
 @Slf4j
 class DataSchemaFactoryTest {
 

@@ -19,6 +19,12 @@ public class DataNodeList extends LinkedList<DataNode> {
         super();
     }
 
+    public DataNodeList(List<?> inputs){
+        for (Object object : inputs) {
+            this.add(new DataNode(object));
+        }
+    }
+
     public DataNodeList(DataNode dataNode) {
         this.add(dataNode);
     }

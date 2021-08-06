@@ -5,7 +5,7 @@ import com.bosuyun.platform.data.driver.executor.QueryExecutor;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.bosuyun.platform.common.context.ReqContext;
 import com.bosuyun.platform.data.driver.executor.PostgresQueryExecutor;
-import com.bosuyun.platform.data.msic.DataDriverException;
+import com.bosuyun.platform.data.exception.DataDriverException;
 import com.bosuyun.platform.common.misc.DataNode;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;

@@ -43,7 +43,7 @@ public class ReqContext {
     /**
      * 数据源配置ID
      */
-    private Long dsId;
+    private Long datasourceId;
 
     /**
      * 操作的数据集合

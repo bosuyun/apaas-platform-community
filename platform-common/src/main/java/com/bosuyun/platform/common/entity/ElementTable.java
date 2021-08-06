@@ -1,8 +1,8 @@
 package com.bosuyun.platform.common.entity;
 
 import com.bosuyun.platform.common.BaseEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,10 +20,10 @@ import javax.persistence.Table;
 @Data
 @Table
 @Entity
-@ApiModel(value = "列表")
+//列表")
 public class ElementTable extends BaseEntity {
 
-    @ApiModelProperty(value = "列表名称")
+    //列表名称")
     @Column(nullable = false)
     private String name;
 

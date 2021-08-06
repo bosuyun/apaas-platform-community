@@ -3,7 +3,7 @@ package com.bosuyun.platform.data.driver.query.sql;
 import com.bosuyun.platform.common.context.ReqContext;
 import com.bosuyun.platform.common.misc.DataNode;
 import com.bosuyun.platform.common.misc.SystemFieldConstants;
-import com.bosuyun.platform.data.msic.DataDriverException;
+import com.bosuyun.platform.data.exception.DataDriverException;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;

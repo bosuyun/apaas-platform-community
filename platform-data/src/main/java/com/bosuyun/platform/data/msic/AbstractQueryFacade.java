@@ -4,6 +4,7 @@ import com.bosuyun.platform.data.driver.executor.PostgresQueryExecutor;
 import com.bosuyun.platform.data.driver.executor.QueryExecutor;
 import com.bosuyun.platform.common.entity.Datasource;
 import com.bosuyun.platform.common.context.ReqContext;
+import com.bosuyun.platform.data.exception.DatasourceException;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -27,7 +28,7 @@ public abstract class AbstractQueryFacade {
      */
     public void initialize(ReqContext context) {
         log.debug("binding dataSource: {}", context);
-        dataSource = Datasource.findByIdFromCache(context.getDsId());
+        dataSource = Datasource.findByIdFromCache(context.getDatasourceId());
         this.context = context;
     }
 
@@ -45,7 +46,7 @@ public abstract class AbstractQueryFacade {
      */
     protected QueryExecutor getQueryExecutor() {
         if (!getDataSource().getAvailable()) {
-            throw new DatasourceException(String.format("数据源不可用, Id: %s", context.getDsId()));
+            throw new DatasourceException(String.format("数据源不可用, Id: %s", context.getDatasourceId()));
         }
         switch (getDataSource().getDriver()) {
             case POSTGRES:

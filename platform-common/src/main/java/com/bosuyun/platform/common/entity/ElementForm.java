@@ -1,7 +1,7 @@
 package com.bosuyun.platform.common.entity;
 
 import com.bosuyun.platform.common.BaseEntity;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -20,19 +20,19 @@ import javax.persistence.*;
 @Accessors(chain = true)
 public class ElementForm extends BaseEntity {
 
-    @ApiModelProperty(value = "应用名称")
+    //应用名称")
     @Column(length = 100, nullable = false)
     private String name;
 
-    @ApiModelProperty(value = "当前生效的数据Schema ID")
+    //当前生效的数据Schema ID")
     @OneToOne(fetch = FetchType.LAZY)
     private DataSchema dataSchema;
 
-    @ApiModelProperty(value = "通过datasource确定数据目标")
+    //通过datasource确定数据目标")
     @OneToOne(fetch = FetchType.LAZY)
     private Datasource datasource;
 
-    @ApiModelProperty(value = "数据集合")
+    //数据集合")
     @Column(length = 100)
     private String collection;
 

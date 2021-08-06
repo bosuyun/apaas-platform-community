@@ -9,4 +9,8 @@ public class BizzException extends RuntimeException {
     public BizzException(String s) {
         super(s);
     }
+
+    public BizzException(){
+        super();
+    }
 }

@@ -15,13 +15,13 @@ public class TestContext {
             .setApplicationId(1L)
             .setSchemaId(1L)
             .setTenantId(111L)
-            .setDsId(1L);
+            .setDatasourceId(1L);
 
     public ReqContext getContext() {
         return context;
     }
 
     public ReqContext getContextPostgres(){
-        return context.setDsId(1L);
+        return context.setDatasourceId(1L);
     }
 }

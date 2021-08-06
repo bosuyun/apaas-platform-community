@@ -1,7 +1,7 @@
 package com.bosuyun.platform.data;
 
 import com.bosuyun.platform.data.schema.DataSchemaFactory;
-import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
@@ -9,7 +9,7 @@ import javax.inject.Inject;
 /**
  * Created by liuyuancheng on 2021/3/26  <br/>
  */
-@QuarkusTest
+
 class DataSchemaFacadeTest {
 
     @Inject

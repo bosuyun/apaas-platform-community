@@ -1,7 +1,7 @@
 package com.bosuyun.platform.common.misc;
 
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -10,7 +10,7 @@ import lombok.experimental.Accessors;
  * <p>
  * Created by liuyuancheng on 2020/8/5  <br/>
  */
-@ApiModel(value = "分页")
+//分页")
 @Data
 @Accessors(chain = true)
 public class DataNodePage {
@@ -20,21 +20,21 @@ public class DataNodePage {
         this.pageNum = paging.getNum();
     }
 
-    @ApiModelProperty(value = "页面条数")
+    //页面条数")
     private int pageSize;
 
-    @ApiModelProperty(value = "页码")
+    //页码")
     private int pageNum;
 
-    @ApiModelProperty(value = "总条数")
+    //总条数")
     private int total;
 
-    @ApiModelProperty(value = "页数")
+    //页数")
     private int pages;
 
-    @ApiModelProperty(value = "是否有下页")
+    //是否有下页")
     private Boolean hasNext;
 
-    @ApiModelProperty(value = "数据列表")
+    //数据列表")
     private DataNodeList list;
 }

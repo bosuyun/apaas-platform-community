@@ -1,6 +1,6 @@
 package com.bosuyun.platform.data.driver.query.sql;
 
-import com.bosuyun.platform.common.definition.DSDriverTypeEnum;
+import com.bosuyun.platform.common.definition.DSDriverEnum;
 import lombok.Data;
 import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
@@ -19,7 +19,7 @@ public abstract class SqlStatement {
 
     private String tableSchema;
 
-    private DSDriverTypeEnum driverType;
+    private DSDriverEnum driverType;
 
     private Long schemaId;
 

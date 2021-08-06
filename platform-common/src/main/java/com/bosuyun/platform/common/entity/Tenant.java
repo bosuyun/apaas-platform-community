@@ -1,7 +1,7 @@
 package com.bosuyun.platform.common.entity;
 
 import com.bosuyun.platform.common.BaseEntity;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
@@ -24,11 +24,11 @@ import static com.bosuyun.platform.common.utils.JsonUtils.toJsonString;
 @Accessors(chain = true)
 public class Tenant extends BaseEntity {
 
-    @ApiModelProperty(value = "租户名称")
+    //租户名称")
     @Column(nullable = false)
     private String name;
 
-    @ApiModelProperty(value = "所属企业")
+    //所属企业")
     @ManyToOne(fetch = FetchType.EAGER)
     private Corp corp;
 

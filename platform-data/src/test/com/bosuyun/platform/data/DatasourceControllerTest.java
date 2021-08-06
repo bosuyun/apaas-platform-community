@@ -1,13 +1,13 @@
 package com.bosuyun.platform.data;
 
-import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.HashMap;
 
 import static io.restassured.RestAssured.given;
 
-@QuarkusTest
+
 class DatasourceControllerTest {
 
     @Test

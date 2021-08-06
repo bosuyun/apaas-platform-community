@@ -5,6 +5,7 @@ import com.bosuyun.platform.common.schema.ObjectType;
 import com.bosuyun.platform.common.schema.SchemaNode;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.bosuyun.platform.data.DataSchemaFacade;
+import com.bosuyun.platform.data.exception.DataSchemaException;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.NoArgsConstructor;

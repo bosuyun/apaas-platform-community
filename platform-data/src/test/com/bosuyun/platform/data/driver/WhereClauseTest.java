@@ -2,12 +2,12 @@ package com.bosuyun.platform.data.driver;
 
 import com.bosuyun.platform.data.driver.query.SqlOperatorFactory;
 import com.bosuyun.platform.data.driver.query.sql.WhereClause;
-import io.quarkus.test.junit.QuarkusTest;
+
 import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 
-@QuarkusTest
+
 class WhereClauseTest {
 
     @Test

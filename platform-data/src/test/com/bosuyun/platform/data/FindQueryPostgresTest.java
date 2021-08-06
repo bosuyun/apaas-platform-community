@@ -7,7 +7,7 @@ import com.bosuyun.platform.TestContext;
 import com.bosuyun.platform.common.misc.DataNodeList;
 import com.bosuyun.platform.data.driver.executor.PostgresQueryExecutor;
 import com.bosuyun.platform.data.driver.executor.QueryExecutor;
-import io.quarkus.test.junit.QuarkusTest;
+
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 
@@ -20,7 +20,7 @@ import static com.bosuyun.platform.data.driver.query.SqlOperatorFactory.eq;
  * <p>
  * Created by liuyuancheng on 2020/12/17  <br/>
  */
-@QuarkusTest
+
 @Slf4j
 class FindQueryPostgresTest {
 

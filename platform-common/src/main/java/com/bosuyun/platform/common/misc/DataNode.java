@@ -1,10 +1,9 @@
 package com.bosuyun.platform.common.misc;
 
 import com.bosuyun.platform.common.schema.ObjectType;
+import com.bosuyun.platform.common.utils.BeanUtils;
 import com.bosuyun.platform.common.utils.JsonSchemaUtils;
 import com.bosuyun.platform.common.utils.JsonUtils;
-import com.bosuyun.platform.common.utils.StringCaseUtils;
-import io.vertx.mutiny.sqlclient.Row;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.LinkedHashMap;
@@ -20,6 +19,14 @@ import java.util.Set;
 @Slf4j
 public class DataNode extends LinkedHashMap<String, Object> {
 
+    /**
+     * 对象转 map
+     *
+     * @param object
+     */
+    public DataNode(Object object){
+        this.putAll(BeanUtils.beanToMap(object));
+    }
 
     public DataNode(final String key, final Object value) {
         super();
@@ -35,19 +42,6 @@ public class DataNode extends LinkedHashMap<String, Object> {
 
     public DataNode() {
         super();
-    }
-
-
-    /**
-     * 数据库返回Row Set，生成DataNode
-     *
-     * @param columns
-     * @param row
-     */
-    public DataNode(List<String> columns, Row row) {
-        for (String column : columns) {
-            put(StringCaseUtils.toCamel(column), row.getValue(column));
-        }
     }
 
     /**

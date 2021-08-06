@@ -4,7 +4,7 @@ import com.bosuyun.platform.common.context.ReqContext;
 import com.bosuyun.platform.common.exception.ApplicaException;
 import com.bosuyun.platform.common.misc.DataNode;
 import com.bosuyun.platform.common.utils.JsonSchemaUtils;
-import com.bosuyun.platform.data.msic.DataDriverException;
+import com.bosuyun.platform.data.exception.DataDriverException;
 import com.bosuyun.platform.data.msic.DataSchemaTree;
 import com.bosuyun.platform.common.misc.DataNodeList;
 import lombok.EqualsAndHashCode;

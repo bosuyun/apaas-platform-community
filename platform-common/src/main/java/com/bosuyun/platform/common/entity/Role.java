@@ -1,7 +1,7 @@
 package com.bosuyun.platform.common.entity;
 
 import com.bosuyun.platform.common.BaseEntity;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -20,27 +20,27 @@ import java.util.Set;
 })
 public class Role extends BaseEntity {
 
-    @ApiModelProperty(value = "归属企业")
+    //归属企业")
     @ManyToOne(fetch = FetchType.LAZY)
     private Corp corp;
 
-    @ApiModelProperty(value = "角色组")
+    //角色组")
     @ManyToOne(fetch = FetchType.LAZY)
     private Role parent;
 
-    @ApiModelProperty(value = "父级角色")
+    //父级角色")
     @OneToMany(mappedBy = "parent")
     private Set<Role> children;
 
-    @ApiModelProperty(value = "角色Key", example = "user.manage.add")
+    //角色Key", example = "user.manage.add")
     @Column(nullable = false)
     private String key;
 
-    @ApiModelProperty(value = "角色组名称")
+    //角色组名称")
     @Column(nullable = false)
     private String name;
 
-    @ApiModelProperty(value = "成员")
+    //成员")
     @ManyToMany(fetch = FetchType.LAZY)
     private List<Member> members;
 }

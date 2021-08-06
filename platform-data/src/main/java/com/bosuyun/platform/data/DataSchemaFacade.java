@@ -1,7 +1,7 @@
 package com.bosuyun.platform.data;
 
 
-import com.bosuyun.platform.data.msic.DataDriverException;
+import com.bosuyun.platform.data.exception.DataDriverException;
 import com.bosuyun.platform.common.entity.DataSchema;
 import com.bosuyun.platform.common.schema.ObjectType;
 import lombok.extern.slf4j.Slf4j;

@@ -3,13 +3,14 @@ package com.bosuyun.platform.common;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import com.vladmihalcea.hibernate.type.json.JsonStringType;
-import io.swagger.annotations.ApiModelProperty;
+
 import lombok.Data;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
 
 import javax.persistence.Column;
+import javax.persistence.EntityManager;
 import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -36,19 +37,19 @@ public abstract class BaseEntity implements Serializable {
         this.id = id;
     }
 
-    @ApiModelProperty(value = "上次更新时间")
+    //上次更新时间")
     @Column(nullable = false, updatable = false, columnDefinition = "timestamptz DEFAULT NOW()")
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @ApiModelProperty(value = "上次更新时间")
+    //上次更新时间")
     @Column(insertable = false)
     private LocalDateTime updatedAt;
 
-    @ApiModelProperty(value = "软删除标记")
+    //软删除标记")
     @Column(columnDefinition = "boolean DEFAULT 'false'", nullable = false, insertable = false)
     private Boolean deleted;
 
-    @ApiModelProperty(value = "软删除时间")
+    //软删除时间")
     @Column(insertable = false)
     private LocalDateTime deletedAt;
 

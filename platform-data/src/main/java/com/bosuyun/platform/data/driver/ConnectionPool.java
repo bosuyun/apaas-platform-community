@@ -1,30 +1,38 @@
 package com.bosuyun.platform.data.driver;
 
-import com.bosuyun.platform.common.definition.DSDriverTypeEnum;
-import io.vertx.mutiny.pgclient.PgPool;
+import com.bosuyun.platform.common.definition.DSDriverEnum;
 import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.experimental.Accessors;
 import lombok.extern.slf4j.Slf4j;
+import org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl;
+
+import javax.inject.Singleton;
+import javax.persistence.EntityManager;
+import java.util.concurrent.ConcurrentHashMap;
+
 
 /**
  * Created by liuyuancheng on 2021/1/27  <br/>
  */
 @Data
-@Accessors(chain = true)
-@NoArgsConstructor
 @Slf4j
+@Singleton
 public class ConnectionPool {
+
+    private ConnectionPool(){}
 
     /**
      * 驱动类型
      */
-    private DSDriverTypeEnum driverType;
+    private DSDriverEnum driverType;
 
     /**
      * SQLConnection
      */
-    private PgPool dbConnection;
+    private DriverManagerConnectionProviderImpl.PooledConnections dbConnection;
 
+    /**
+     * datasourceId -> entityManager
+     */
+    private ConcurrentHashMap<Long, EntityManager> em;
 
 }

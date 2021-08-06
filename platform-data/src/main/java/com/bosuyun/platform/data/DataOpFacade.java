@@ -5,10 +5,9 @@ import com.bosuyun.platform.common.misc.DataNodeList;
 import com.bosuyun.platform.common.misc.DataNodePage;
 import com.bosuyun.platform.common.misc.Paging;
 import com.bosuyun.platform.data.driver.query.sql.WhereClause;
+import com.bosuyun.platform.data.eventbus.EventBusFacade;
+import com.bosuyun.platform.data.eventbus.DataOperationMessage;
 import com.bosuyun.platform.data.msic.AbstractQueryFacade;
-import com.bosuyun.platform.common.eventbus.EventBusFacade;
-import com.bosuyun.platform.common.eventbus.message.EventMessage;
-import com.bosuyun.platform.common.eventbus.message.DataOpMessage;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
@@ -39,7 +38,7 @@ public class DataOpFacade extends AbstractQueryFacade {
      * @return
      */
     public Long insertOne(final DataNode dataNode) {
-        EventMessage dataOpMessage = new DataOpMessage().insert().setInputData(dataNode)
+        DataOperationMessage dataOpMessage = new DataOperationMessage().insert().setInputData(dataNode)
                 .setReqContext(this.getQueryExecutor().getContext());
         Long returning = getQueryExecutor().insertOne(dataNode);
         if (Objects.nonNull(returning)) {
@@ -55,7 +54,7 @@ public class DataOpFacade extends AbstractQueryFacade {
      * @return
      */
     public List<Long> insertMany(final DataNodeList dataNodes) {
-        EventMessage dataOpMessage = new DataOpMessage().insertMany().setInputData(dataNodes)
+        DataOperationMessage dataOpMessage = new DataOperationMessage().insertMany().setInputData(dataNodes)
                 .setReqContext(this.getQueryExecutor().getContext());
         var returning = getQueryExecutor().insertMany(dataNodes);
         if (Objects.nonNull(returning)) {
@@ -80,7 +79,7 @@ public class DataOpFacade extends AbstractQueryFacade {
         }
         var returning = getQueryExecutor().updateOne(filter, dataNodeForUpdate);
         if (Objects.nonNull(returning) && returning > 0) {
-            EventMessage dataOpMessage = new DataOpMessage().update()
+            DataOperationMessage dataOpMessage = new DataOperationMessage().update()
                     .setInputData(dataNodeForUpdate)
                     .setUpdateFields(dataNode.getKeyList())
                     .setFormerData(formerData)
@@ -119,7 +118,7 @@ public class DataOpFacade extends AbstractQueryFacade {
         var dataNode = getQueryExecutor().selectOne(filter);
         var returning = getQueryExecutor().deleteOne(filter, false);
         if (Objects.nonNull(returning)) {
-            EventMessage dataOpMessage = new DataOpMessage().delete().setInputData(dataNode)
+            DataOperationMessage dataOpMessage = new DataOperationMessage().delete().setInputData(dataNode)
                     .setReqContext(getQueryExecutor().getContext());
             eventBusFacade.launchDataOpEvent(dataOpMessage);
         }
@@ -130,7 +129,7 @@ public class DataOpFacade extends AbstractQueryFacade {
         var dataNode = getQueryExecutor().selectOne(filter);
         var returning = getQueryExecutor().deleteOne(filter, true);
         if (Objects.nonNull(returning)) {
-            EventMessage dataOpMessage = new DataOpMessage().undoDelete().setInputData(dataNode).setReqContext(getQueryExecutor().getContext());
+            DataOperationMessage dataOpMessage = new DataOperationMessage().undoDelete().setInputData(dataNode).setReqContext(getQueryExecutor().getContext());
             eventBusFacade.launchDataOpEvent(dataOpMessage);
         }
         return returning;

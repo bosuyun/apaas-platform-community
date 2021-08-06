@@ -1,12 +1,11 @@
 package com.bosuyun.platform.data;
 
-import com.bosuyun.platform.common.definition.DSDriverTypeEnum;
+import com.bosuyun.platform.common.definition.DSDriverEnum;
 import com.bosuyun.platform.data.msic.DatasourceModel;
 import com.bosuyun.platform.common.utils.BeanUtils;
 import com.bosuyun.platform.common.utils.PanacheUtils;
 import com.bosuyun.platform.common.entity.Datasource;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.lang3.StringUtils;
 
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
@@ -46,20 +45,14 @@ public class DatasourceService {
             put("name", name);
             put("host", host);
             try {
-                put("driver", DSDriverTypeEnum.valueOf(driver));
+                put("driver", DSDriverEnum.valueOf(driver));
             } catch (IllegalArgumentException e) {
                 put("driver", null);
             }
         }};
         var queryString = PanacheUtils.queryConditionJoining(queryParams);
         log.debug("list queryString: {}, {}", queryString, PanacheUtils.removeInvalidParams(queryParams));
-        PanacheQuery<Datasource> panacheQuery;
-        if (StringUtils.isEmpty(queryString)) {
-            panacheQuery = Datasource.find("");
-        } else {
-            panacheQuery = Datasource.find(PanacheUtils.queryConditionJoining(queryParams), PanacheUtils.removeInvalidParams(queryParams));
-        }
-        return panacheQuery.page(pageNum, pageSize).list();
+        return null;
     }
 
     public Datasource findById(Long id) {

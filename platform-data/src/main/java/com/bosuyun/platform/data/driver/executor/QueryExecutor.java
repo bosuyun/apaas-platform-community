@@ -10,7 +10,6 @@ import com.bosuyun.platform.common.misc.Sorting;
 import com.bosuyun.platform.data.driver.query.sql.SqlStatement;
 import com.bosuyun.platform.data.driver.query.sql.WhereClause;
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 import java.util.Arrays;
 import java.util.List;
@@ -21,7 +20,6 @@ import java.util.List;
  * Created by liuyuancheng on 2020/12/25  <br/>
  */
 @Data
-@Accessors(chain = true)
 public abstract class QueryExecutor {
 
     /**
@@ -72,7 +70,6 @@ public abstract class QueryExecutor {
      */
     public QueryExecutor setContext(final ReqContext context) {
         this.context = context;
-        sqlExecuteManager = new SqlExecuteManager(PoolConnectionFactory.get(context.getDsId()));
         return this;
     }
 

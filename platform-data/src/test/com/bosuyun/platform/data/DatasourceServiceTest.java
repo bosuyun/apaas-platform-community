@@ -1,9 +1,8 @@
 package com.bosuyun.platform.data;
 
-import com.bosuyun.platform.common.definition.DSDriverTypeEnum;
+import com.bosuyun.platform.common.definition.DSDriverEnum;
 import com.bosuyun.platform.common.entity.Datasource;
 import com.bosuyun.platform.data.msic.DatasourceModel;
-import io.quarkus.test.junit.QuarkusTest;
 import org.junit.jupiter.api.Test;
 
 import javax.inject.Inject;
@@ -11,7 +10,6 @@ import javax.inject.Inject;
 /**
  * Created by liuyuancheng on 2020/12/17  <br/>
  */
-@QuarkusTest
 class DatasourceServiceTest {
 
     @Inject
@@ -31,7 +29,7 @@ class DatasourceServiceTest {
     void persist() {
         var t = datasourceFacade.persist(DatasourceModel.builder()
                 .dbname("test")
-                .driver(DSDriverTypeEnum.POSTGRES)
+                .driver(DSDriverEnum.POSTGRES)
                 .available(true)
                 .poolSize(11)
                 .password("adsfasdflj")

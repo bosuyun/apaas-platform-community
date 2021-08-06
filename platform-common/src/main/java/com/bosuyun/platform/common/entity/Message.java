@@ -1,7 +1,6 @@
 package com.bosuyun.platform.common.entity;
 
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
-import io.swagger.annotations.ApiModelProperty;
+import com.bosuyun.platform.common.BaseEntity;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -19,13 +18,13 @@ import java.io.Serializable;
 @Data
 @Entity
 @Table
-public class Message extends PanacheEntity implements Serializable {
+public class Message extends BaseEntity {
 
     @Column(nullable = false)
-    @ApiModelProperty(value = "消息内容")
+    //消息内容")
     private String content;
 
-    @ApiModelProperty(value = "消息类型 0-未定义 1-系统通知 2-用户消息 3-应用消息 4-个人待办")
+    //消息类型 0-未定义 1-系统通知 2-用户消息 3-应用消息 4-个人待办")
     @Column(nullable = false, columnDefinition = "int2 DEFAULT '0'")
     private Integer type;
 

@@ -1,8 +1,8 @@
 package com.bosuyun.platform.common.entity;
 
 import com.bosuyun.platform.common.BaseEntity;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+
+
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
@@ -17,11 +17,11 @@ import javax.persistence.OneToOne;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data
-@ApiModel(value = "图表")
+//图表")
 @Entity
 public class ElementChart extends BaseEntity {
 
-    @ApiModelProperty(value = "图表名称")
+    //图表名称")
     @Column(nullable = false)
     private String name;
 

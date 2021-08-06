@@ -74,7 +74,7 @@ public class PlatformPropertyManager {
         platformProperty.setValue(value);
         platformProperty.setDefaultValue(defaultValue);
         platformProperty.setComment(comment);
-        platformProperty.persist();
+//        platformProperty.persist();
     }
 
 }

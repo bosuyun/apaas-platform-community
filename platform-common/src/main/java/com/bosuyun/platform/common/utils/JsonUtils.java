@@ -5,7 +5,6 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.util.StdDateFormat;
-import com.fasterxml.jackson.dataformat.yaml.YAMLMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import lombok.extern.slf4j.Slf4j;
 
@@ -50,21 +49,6 @@ public class JsonUtils {
             return false;
         }
         return true;
-    }
-
-    /**
-     * JSON2Yaml
-     *
-     * @param input
-     * @return
-     */
-    public static String json2Yaml(String input) {
-        try {
-            return new YAMLMapper().writeValueAsString(mapper.readTree(input));
-        } catch (JsonProcessingException e) {
-            e.printStackTrace();
-        }
-        return "";
     }
 
     /**

@@ -4,7 +4,7 @@ import com.bosuyun.platform.TestContext;
 import com.bosuyun.platform.common.misc.DataNode;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.bosuyun.platform.common.misc.Paging;
-import io.quarkus.test.junit.QuarkusTest;
+
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 
@@ -15,7 +15,7 @@ import java.util.Arrays;
 import static com.bosuyun.platform.data.driver.query.SqlOperatorFactory.emptyClause;
 import static com.bosuyun.platform.data.driver.query.SqlOperatorFactory.id;
 
-@QuarkusTest
+
 class DataOpFacadeTest {
 
     @Inject
