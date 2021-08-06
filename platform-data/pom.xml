@@ -20,13 +20,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-            <dependency>
-                <groupId>com.bosuyun.bom</groupId>
-                <artifactId>camunda-dependencies</artifactId>
-                <version>1.0.1-SNAPSHOT</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
         </dependencies>
     </dependencyManagement>
     <dependencies>
@@ -39,11 +32,6 @@
             <groupId>com.bosuyun</groupId>
             <artifactId>platform-common</artifactId>
             <version>1.0.1-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>org.camunda.bpm.assert</groupId>
-            <artifactId>camunda-bpm-assert</artifactId>
-            <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
