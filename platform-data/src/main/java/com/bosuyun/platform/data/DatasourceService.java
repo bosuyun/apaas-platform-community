@@ -5,7 +5,6 @@ import com.bosuyun.platform.data.msic.DatasourceModel;
 import com.bosuyun.platform.common.utils.BeanUtils;
 import com.bosuyun.platform.common.utils.PanacheUtils;
 import com.bosuyun.platform.common.entity.Datasource;
-import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 

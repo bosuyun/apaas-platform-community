@@ -3,10 +3,8 @@ package com.bosuyun.platform.common;
 import com.bosuyun.platform.common.utils.JsonUtils;
 import com.vladmihalcea.hibernate.type.json.JsonBinaryType;
 import com.vladmihalcea.hibernate.type.json.JsonStringType;
-import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.experimental.Accessors;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
@@ -16,12 +14,9 @@ import javax.persistence.MappedSuperclass;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-import static com.bosuyun.platform.common.utils.JsonUtils.toJsonString;
-
 /**
  * Created by liuyuancheng on 2020/12/8  <br/>
  */
-@EqualsAndHashCode(callSuper = true)
 @TypeDefs({
         @TypeDef(name = "json", typeClass = JsonStringType.class),
         @TypeDef(name = "jsonb", typeClass = JsonBinaryType.class)
@@ -29,7 +24,9 @@ import static com.bosuyun.platform.common.utils.JsonUtils.toJsonString;
 @MappedSuperclass
 @Data
 @Accessors(chain = true)
-public abstract class BaseEntity extends PanacheEntity implements Serializable {
+public abstract class BaseEntity implements Serializable {
+
+    private Long id;
 
     public Long getId() {
         return this.id;
@@ -58,5 +55,18 @@ public abstract class BaseEntity extends PanacheEntity implements Serializable {
     @Override
     public String toString() {
         return JsonUtils.toJsonString(this);
+    }
+
+
+    public static <T> T findById(long id) {
+        return null;
+    }
+
+    public static <T> T update(String statement, Object... args) {
+        return null;
+    }
+
+    public static <T> T find(String statement){
+        return null;
     }
 }

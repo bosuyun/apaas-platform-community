@@ -15,6 +15,7 @@ import java.util.Objects;
 @Slf4j
 public abstract class AbstractQueryFacade {
 
+
     @Setter
     private Datasource dataSource;
 

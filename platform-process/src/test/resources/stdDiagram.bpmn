@@ -73,10 +73,6 @@
     </bpmn:serviceTask>
     <bpmn:sequenceFlow id="Flow_1ct9bk3" sourceRef="Gateway_09d145k" targetRef="Activity_0hyr03m" />
     <bpmn:sequenceFlow id="Flow_03fqgpp" sourceRef="Activity_0hyr03m" targetRef="Event_1ugqzo5" />
-    <bpmn:sendTask id="Activity_0hyr03m" name="send email" camunda:class="com.bosuyun.platform.process.task.PSendTask">
-      <bpmn:incoming>Flow_1ct9bk3</bpmn:incoming>
-      <bpmn:outgoing>Flow_03fqgpp</bpmn:outgoing>
-    </bpmn:sendTask>
     <bpmn:scriptTask id="Activity_122cq4u" name="task one" scriptFormat="groovy">
       <bpmn:extensionElements>
         <camunda:properties>
@@ -87,6 +83,10 @@
       <bpmn:outgoing>Flow_1d4tcti</bpmn:outgoing>
       <bpmn:script>println("xasdfasdfasdfasdf")</bpmn:script>
     </bpmn:scriptTask>
+    <bpmn:userTask id="Activity_0hyr03m" name="send email">
+      <bpmn:incoming>Flow_1ct9bk3</bpmn:incoming>
+      <bpmn:outgoing>Flow_03fqgpp</bpmn:outgoing>
+    </bpmn:userTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="stdDiagram">
@@ -186,11 +186,11 @@
       <bpmndi:BPMNShape id="Activity_1mwxo4a_di" bpmnElement="Activity_1ulij2f">
         <dc:Bounds x="620" y="110" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1isagrh_di" bpmnElement="Activity_0hyr03m">
-        <dc:Bounds x="1010" y="110" width="100" height="80" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1tphpdp_di" bpmnElement="Activity_122cq4u">
         <dc:Bounds x="240" y="110" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1avmqgz_di" bpmnElement="Activity_0hyr03m">
+        <dc:Bounds x="1010" y="110" width="100" height="80" />
       </bpmndi:BPMNShape>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

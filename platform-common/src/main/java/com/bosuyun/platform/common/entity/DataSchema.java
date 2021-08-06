@@ -33,9 +33,4 @@ public class DataSchema extends BaseEntity {
     @ApiModelProperty(value = "schema版本号，也会保存至appdata")
     private Boolean current;
 
-    public DataSchema setId(Long id) {
-        super.id = id;
-        return this;
-    }
-
 }

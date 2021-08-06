@@ -4,8 +4,6 @@ package com.bosuyun.platform.data;
 import com.bosuyun.platform.data.msic.DataDriverException;
 import com.bosuyun.platform.common.entity.DataSchema;
 import com.bosuyun.platform.common.schema.ObjectType;
-import io.quarkus.cache.CacheInvalidate;
-import io.quarkus.cache.CacheResult;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -34,7 +32,6 @@ public class DataSchemaFacade {
      * @param id
      * @return
      */
-    @CacheResult(cacheName = CACHE_NAME)
     public DataSchema findById(Long id) {
         return DataSchema.findById(id);
     }
@@ -47,7 +44,6 @@ public class DataSchemaFacade {
         return dataSchema.getSchema();
     }
 
-    @CacheInvalidate(cacheName = CACHE_NAME)
     public void invalidate(Long id) {
     }
 

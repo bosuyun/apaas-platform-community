@@ -13,8 +13,7 @@
     </properties>
     <packaging>pom</packaging>
     <modules>
-        <module>camel-dependencies</module>
-        <module>quarkus-dependencies</module>
+        <module>common-dependencies</module>
         <module>camunda-dependencies</module>
     </modules>
 </project>

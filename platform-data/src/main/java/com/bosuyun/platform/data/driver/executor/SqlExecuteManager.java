@@ -10,6 +10,10 @@ import io.vertx.mutiny.sqlclient.Transaction;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 
+import javax.enterprise.context.ApplicationScoped;
+import javax.inject.Inject;
+import javax.inject.Singleton;
+import javax.persistence.EntityManager;
 import java.util.Objects;
 
 /**
@@ -18,13 +22,13 @@ import java.util.Objects;
  * Created by liuyuancheng on 2021/5/21  <br/>
  */
 @Slf4j
+@Singleton
 public class SqlExecuteManager {
 
-    public SqlExecuteManager(final ConnectionPool connectionPool) {
-        this.connectionPool = connectionPool;
-    }
+    @Inject
+    EntityManager em;
 
-    private final ConnectionPool connectionPool;
+    private ConnectionPool connectionPool;
 
     private Transaction transaction;
 

@@ -6,6 +6,7 @@ import org.camunda.bpm.engine.runtime.ProcessInstance;
 import org.camunda.bpm.engine.test.Deployment;
 import org.camunda.bpm.engine.test.ProcessEngineRule;
 import org.camunda.bpm.engine.test.assertions.bpmn.BpmnAwareTests;
+import org.camunda.bpm.model.bpmn.Bpmn;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -46,6 +47,8 @@ public class SimpleTestCase {
     public void shouldExecuteProcessCondition() {
         // Given we create a new process instance
         ProcessInstance processInstance = BpmnAwareTests.runtimeService().startProcessInstanceByKey("stdDiagram");
+        BpmnAwareTests.assertThat(processInstance).isActive();
+        BpmnAwareTests.complete(BpmnAwareTests.task(processInstance));
         BpmnAwareTests.assertThat(processInstance).isEnded();
     }
 
